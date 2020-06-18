@@ -27,8 +27,8 @@ class NeurodamusModel(SimModel):
     # and dont rpath it so we stay dynamic.
     # 'run' mode will load the same mpi module
     depends_on("mpi", type=('build', 'run'))
-    depends_on('neurodamus-core')
-    depends_on('neurodamus-core@develop', when='@develop')
+    depends_on('neurodamus-core', type=('build', 'link'))
+    depends_on('neurodamus-core@develop', type=('build', 'link'), when='@develop')
     depends_on('hdf5+mpi')
     depends_on('reportinglib')
     depends_on('libsonata-report')
@@ -152,13 +152,15 @@ class NeurodamusModel(SimModel):
                         prefix.lib.hoc.join('defvar.hoc'))
 
     def setup_run_environment(self, env):
+        tty.warn("WTF")
         self._setup_run_environment_common(env)
-        for libnrnmech_name in find(self.prefix.lib, 'libnrnmech*.so',
+        for libnrnmech_name in find(self.prefix.lib, 'libnrnmech*',
                                     recursive=False):
             # We have the two libs and must export them in different vars
             #  - NRNMECH_LIB_PATH the combined lib (used by neurodamus-py)
             #  - BGLIBPY_MOD_LIBRARY_PATH is the pure mechanism
             #        (used by bglib-py)
+            tty.warn("Handling ", libnrnmech_name)
             if 'libnrnmech.' in libnrnmech_name:
                 env.set('NRNMECH_LIB_PATH', libnrnmech_name)
             else:
