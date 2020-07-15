@@ -358,7 +358,7 @@ pipeline {
     }
 
     post {
-        changed {
+        failure {
             script {
                 if (!env.ghprbPullId) {
                     mail to: 'bbp-deployment@groupes.epfl.ch',
