@@ -19,25 +19,7 @@ class NeurodamusCore(SimModel):
     homepage = "ssh://bbpcode.epfl.ch/sim/neurodamus-core"
     git      = "ssh://bbpcode.epfl.ch/sim/neurodamus-core"
 
-    version('develop', branch='master', get_full_repo=False)
-    version('2.11.0', tag='2.11.0', get_full_repo=False, preferred=True)
-    version('2.10.1', tag='2.10.1', get_full_repo=False)
-    version('2.10.0', tag='2.10.0', get_full_repo=False)
-    version('2.9.3', tag='2.9.3', get_full_repo=False)
-    version('2.9.2', tag='2.9.2', get_full_repo=False)
-    version('2.9.1', tag='2.9.1', get_full_repo=False)
-    version('2.9.0', tag='2.9.0', get_full_repo=False)
-    version('2.8.0', tag='2.8.0', get_full_repo=False)
-    version('2.7.3', tag='2.7.3', get_full_repo=False)
-    version('2.7.2', tag='2.7.2', get_full_repo=False)
-    version('2.7.0', tag='2.7.0', get_full_repo=False)
-    version('2.6.0', tag='2.6.0', get_full_repo=False)
-    version('2.5.0', tag='2.5.0', get_full_repo=False)
-    version('2.4.3', tag='2.4.3', get_full_repo=False)
-    version('2.4.1', tag='2.4.1', get_full_repo=False)
-    version('2.3.4', tag='2.3.4', get_full_repo=False)
-    version('2.3.3', tag='2.3.3', get_full_repo=False)
-    version('2.2.1', tag='2.2.1', get_full_repo=False)
+    version('develop', branch='sandbox/leite/synreader_column', get_full_repo=False)
 
     variant('mpi',    default=True,  description="Enable MPI support")
     variant('common', default=False, description="Bring in common synapse mechanisms")
